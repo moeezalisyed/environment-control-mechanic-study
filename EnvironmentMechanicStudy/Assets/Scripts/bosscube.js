@@ -20,7 +20,7 @@ function Update() {
         // Quaternion.identity = add the bullet with no rotation
        // transform.Rotate(Vector3.forward, speed * Time.deltaTime);
         x++;
-        if(x%100 == 0){
+        if(x%20 == 0){
        		// transform.localScale -= new Vector3(0.002F, 0, 0);
         	
         	Instantiate(bullet, transform.position, Quaternion.identity);
@@ -30,24 +30,25 @@ function Update() {
     
 }
 
-
-  // Function called when the enemy collides with another object
-function OnTriggerEnter2D(obj) {
-	print("hi");
+	 // Function called when the enemy collides with another object
+	function OnTriggerEnter2D(obj) {
+	//print("hi");
     // Name of the object that collided with the enemy
     var name = obj.gameObject.name;
 
     // If the enemy collided with a bullet
-    if (name == "bullet(Clone)") {
+    if (name == "bullet1(Clone)") {
+    	//print("this here");
         // Destroy itself (the enemy) and the bullet
-        Destroy(gameObject);
-        Destroy(obj.gameObject);
+      //Destroy(gameObject);
+       transform.localScale -= new Vector3(0.01F, 0.01F, 0F);
+      Destroy(obj.gameObject);
     }
 
     // If the enemy collided with the spaceship
-    if (name == "spaceship") {
-        // Destroy itself (the enemy) to keep things simple
-        Destroy(gameObject);
-    }
+
 } 
+
+
+
  

@@ -6,8 +6,17 @@ function Start () {
     // Get the rigidbody component
     var r2d = GetComponent.<Rigidbody2D>();
 
-    var dir:int = Random.Range(1,4);
+    var dir:int = Random.Range(1,15);
     //Find which direction to move the bullet
+    if(dir > 4){
+    var dirrandom:int = Random.Range(-180,180);
+    	transform.Rotate (Vector3.forward * dirrandom);
+          r2d.velocity.x = speed;
+        
+
+
+    }else{
+
     switch (dir) {
     case 1:
     	
@@ -25,7 +34,9 @@ function Start () {
     transform.Rotate (Vector3.forward * -90);
          r2d.velocity.x = -1*speed;
         break;
+     
     
+	}
 }
 
 
@@ -46,22 +57,7 @@ function OnBecameInvisible() {
 }
 
 
- // Function called when the enemy collides with another object
-function OnTriggerEnter2D(obj) {
-	print("hijp");
-    // Name of the object that collided with the enemy
-    var name = obj.gameObject.name;
 
-    // If the enemy collided with a bullet
-    if (name == "Cube") {
-        // Destroy itself (the enemy) and the bullet
-        //Destroy(gameObject);
-    //    Destroy(obj.gameObject);
-    }
-
-    // If the enemy collided with the spaceship
-
-} 
  
 
  
