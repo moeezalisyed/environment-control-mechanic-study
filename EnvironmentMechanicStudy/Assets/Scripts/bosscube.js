@@ -1,11 +1,34 @@
 ﻿// A variable that will contain our bullet prefab
 public var bullet : GameObject;
+public var dattack : GameObject;
+public var rattack : GameObject;
+public var lattack : GameObject;
+public var uattack : GameObject;
+public var envvar : GameObject;
 public var x = 1;
 public var speed : float = 10f;
+var countenv:int = 1;
+
+function Start(){
+	var envinit:int = 6;
+	for (i = 0; i < envinit; i++) { 
+    	this.callenv();
+	}
+	countenv +=envinit;
+}
+
+function callenv(){
+	Instantiate(envvar, transform.position, Quaternion.identity);
+}
 
 function Update() { 
     // Move the spaceship horizontally (no changes)
     var r2d = GetComponent.<Rigidbody2D>();
+    if(countenv < 4){
+    this.callenv();
+    countenv++;	
+
+    }
     /*if (Input.GetKey("right"))
         r2d.velocity.x = 10;
     else if (Input.GetKey("left"))
@@ -24,6 +47,14 @@ function Update() {
        		// transform.localScale -= new Vector3(0.002F, 0, 0);
         	
         	Instantiate(bullet, transform.position, Quaternion.identity);
+        }
+        if(x%201 == 0){
+        	Instantiate(dattack, transform.position, Quaternion.identity);
+        	Instantiate(uattack, transform.position, Quaternion.identity);
+        	Instantiate(rattack, transform.position, Quaternion.identity);
+        	Instantiate(lattack, transform.position, Quaternion.identity);
+
+
         }
     
        	

@@ -6,7 +6,7 @@ function Start () {
     // Get the rigidbody component
     var r2d = GetComponent.<Rigidbody2D>();
 
-    var dir:int = Random.Range(1,15);
+    var dir:int = Random.Range(1,4);
     //Find which direction to move the bullet
     if(dir > 4){
     var dirrandom:int = Random.Range(-180,180);
