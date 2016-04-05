@@ -28,7 +28,7 @@ function Update() {
 function OnTriggerEnter2D(obj) {
 	if(!gameOver){
      // Name of the object that collided with the enemy
-    print("o");
+   // print("o");
     var name = obj.gameObject.name;
 
     // If the enemy collided with a bullet
